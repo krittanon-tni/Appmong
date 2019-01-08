@@ -25,7 +25,7 @@ app.get('/showbyID/:id', function (req, res) {
         var data = JSON.parse(data);
         var ShowUserbyID = data["user" + req.params.id]
         console.log(data[ShowUserbyID]);
-        res.end(JSON.stringify(ShowUserbyID);
+        res.end(JSON.stringify(ShowUserbyID));
     });
 })
 
