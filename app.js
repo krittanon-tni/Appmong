@@ -22,10 +22,10 @@ app.get('/listUsers', function (req, res) {
 //Show by ID
 app.get('/showbyID/:id', function (req, res) {
     fs.readFile(__dirname + "/" + "users.json", 'utf8', function (err, data) {
-        var users = JSON.parse(data);
-        var user = users["user" + req.params.id]
-        console.log(user);
-        res.end(JSON.stringify(user));
+        var data = JSON.parse(data);
+        var ShowUserbyID = data["user" + req.params.id]
+        console.log(data[ShowUserbyID]);
+        res.end(JSON.stringify(ShowUserbyID);
     });
 })
 
@@ -63,12 +63,12 @@ app.post('/addMultiUser', function (req, res) {
 app.delete('/deleteUser/:id', function (req, res) {
     // First read existing users.
     fs.readFile(__dirname + "/" + "users.json", 'utf8', function (err, data) {
-        var users = JSON.parse(data);
+        var data = JSON.parse(data);
 
-        delete users["user" + req.params.id];
+        delete data["user" + req.params.id];
 
-        console.log(users);
-        res.end(JSON.stringify(users));
+        console.log(data);
+        res.end(JSON.stringify(data));
     });
 })
 
